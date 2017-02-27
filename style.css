@@ -1,0 +1,11 @@
+.main-section{
+  margin-top: 5em;
+  background-color: grey;
+
+}
+
+.question-section{
+  background-color: red;
+  margin:3em;
+  text-align:center;
+}
