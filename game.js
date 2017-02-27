@@ -2,30 +2,29 @@
 
 // starting page with "Start" Button
 
+
 $('#timeUpGif').hide();
-
-
-
-$('#start').on("click", function(){
-    $('.question-section').empty();
-});
 
 var stopwatch = {
   time:30,
   count: function(){
     stopwatch.time--;
     $('.clock').html(stopwatch.time);
+    if (stopwatch.time===0){
+      $('#timeUpGif').show();
+      $('.clock').empty();
+    }
     },
     start: function() {
-      
+
         intervalId = setInterval(stopwatch.count, 1000);
     }
-
-
 }
-console.log(stopwatch.time);
 
 $('#timer').click(stopwatch.start);
+$('#start').on("click", function(){
+    $('.question-section').empty();
+});
 
 
 
