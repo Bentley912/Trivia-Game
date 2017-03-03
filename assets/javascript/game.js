@@ -23,17 +23,52 @@ var questions =[
 ];
 
 var counter = 0;
+var answers = ('p');
+
+var letters = ["a)", "b)", "c)", "d)"];
 
 function nextQuestion(){
-  $('h3').html(questions[counter].quizz);
 
-  for (var i = )
 
+  for (var i =0; i < questions[counter].choice.length; i++ ){
+    $('h3').html(questions[counter].question);
+    $(answers[i]).html(letters[i] + questions[counter].choice[i]);
+    $(answers[i]).attr('value', questions[counter].choice[i]);
+  }
+
+  $('.questions p').on('click', function(){
+
+  		if($(this).attr('value') === questions[counter].correct){
+
+  				console.log($(this).attr('value'));
+  			}
+  			else{
+  				console.log("Nope it didn't worked!!!")
+  			}
+  		});
+
+  } // end of nextQuestions
+
+
+
+function startCounter(time){
+			var startCounting = setInterval(function(){
+
+			nextQuestion();
+			counter++;
+
+
+			if(counter >= questions.length){
+				clearInterval(startCounting)
+			}
+		}, time)
 }
-
 $('.start').on("click", function(){
   $('.start').css('display', 'none');
   $('.questions').css('display','block');
+
+  var clock = startCounter(10000);
+  
 });
 
 
